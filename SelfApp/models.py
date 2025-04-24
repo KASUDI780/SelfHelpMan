@@ -3,9 +3,11 @@ from django.db import models
 # Create your models here.
 class Member(models.Model):
     name = models.CharField(max_length=100)
+    photo = models.ImageField(upload_to="uploads/",default="a.png")
     phone = models.CharField(max_length=15, unique=True)
     national_id = models.CharField(max_length=20, unique=True)
     joined_at = models.DateTimeField(auto_now_add=True)
+    joined_on = models.DateTimeField(auto_now=True)
 
     def __str__(self):
         return self.name
